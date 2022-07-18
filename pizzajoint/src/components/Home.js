@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { easeInOut } from "@popmotion/easing";
+import Loader from "./Loader";
 
 const nextButtonVariant = {
   show: {
@@ -58,6 +59,7 @@ const Home = () => {
           Create Your Pizza
         </motion.button>
       </Link>
+      <Loader />
     </motion.div>
   );
 };
