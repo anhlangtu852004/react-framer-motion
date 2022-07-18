@@ -14,6 +14,12 @@ const containerVariants = {
       delay: 0.5,
     },
   },
+  exit: {
+    x: "-100vw",
+    transition: {
+      ease: "easeInOut",
+    },
+  },
 };
 
 const nextVariants = {
@@ -28,6 +34,24 @@ const nextVariants = {
     },
   },
 };
+
+const nextButtonVariant = {
+  show: {
+    x: -20,
+    transition: {
+      delay: 2,
+    },
+  },
+  hover: {
+    scale: 1.1,
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0px 0px 8px rgb(255,255,255)",
+    transition: {
+      repeat: 10,
+      repeatType: "reverse",
+    },
+  },
+};
 const Base = ({ addBase, pizza }) => {
   const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
 
@@ -36,6 +60,7 @@ const Base = ({ addBase, pizza }) => {
       variants={containerVariants}
       initial="hidden"
       animate="show"
+      exit="exit"
       // initial={{ x: "120vw" }}
       // animate={{ x: 0 }}
       // transision={{ delay: 0.5 }}
@@ -75,11 +100,9 @@ const Base = ({ addBase, pizza }) => {
         >
           <Link to="/toppings">
             <motion.button
-              whileHover={{
-                scale: 1.1,
-                textShadow: "0px 0px 8px rgb(255,255,255)",
-                boxShadow: "0px 0px 8px rgb(255,255,255)",
-              }}
+              variants={nextButtonVariant}
+              animate="show"
+              whileHover="hover"
             >
               Next
             </motion.button>
